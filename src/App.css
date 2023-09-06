@@ -1,0 +1,86 @@
+div {
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 10px black;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+.App .btn {
+  border: 2px solid rgb(239, 242, 239);
+  border-radius: 10px;
+}
+
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #107ff4;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1ecf85;
+}
