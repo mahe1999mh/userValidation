@@ -4,7 +4,7 @@ import Signin from "./Signin";
 import SignUp from "./Signup";
 
 function App() {
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState([]);
   const [isSignUpVisible, setIsSignUpVisible] = useState(true);
   const [isSignInVisible, setIsSignInVisible] = useState(false);
   const showSignUp = () => {

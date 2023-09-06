@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const SignUp = ({ setUserData }) => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -10,6 +10,11 @@ const SignUp = ({ setUserData }) => {
 
   const [users, setUsers] = useState([]);
   const [isUsernameUnique, setIsUsernameUnique] = useState(true);
+
+  useEffect(() => {
+    setUserData(users);
+    console.log(users);
+  }, [users, setUserData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,8 +31,6 @@ const SignUp = ({ setUserData }) => {
     } else {
       setIsUsernameUnique(false);
     }
-    console.log(users);
-    setUserData(users); // sending data user data to App and it will sent to signin
   };
 
   return (
