@@ -51,6 +51,7 @@ const SignIn = ({ userData }) => {
                 name="username"
                 value={loginFormData.username}
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
@@ -60,6 +61,7 @@ const SignIn = ({ userData }) => {
                 name="password"
                 value={loginFormData.password}
                 onChange={handleChange}
+                required
               />
             </div>
             <button type="submit">Login</button>

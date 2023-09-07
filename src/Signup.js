@@ -43,6 +43,7 @@ const SignUp = ({ setUserData }) => {
             <input
               type="text"
               name="firstName"
+              required
               value={formData.firstName}
               onChange={handleChange}
             />
@@ -52,6 +53,7 @@ const SignUp = ({ setUserData }) => {
             <input
               type="text"
               name="lastName"
+              required
               value={formData.lastName}
               onChange={handleChange}
             />
@@ -61,6 +63,7 @@ const SignUp = ({ setUserData }) => {
             <input
               type="email"
               name="email"
+              required
               value={formData.email}
               onChange={handleChange}
             />
@@ -70,11 +73,12 @@ const SignUp = ({ setUserData }) => {
             <input
               type="text"
               name="username"
+              required
               value={formData.username}
               onChange={handleChange}
             />
             {!isUsernameUnique && (
-              <p className="error">Username is not unique.</p>
+              <p className="error">Username must be unique.</p>
             )}
           </div>
           <div>
@@ -83,6 +87,7 @@ const SignUp = ({ setUserData }) => {
               type="password"
               name="password"
               value={formData.password}
+              required
               onChange={handleChange}
             />
           </div>
