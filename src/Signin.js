@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const SignIn = ({ userData }) => {
+const SignIn = () => {
   const [loginFormData, setLoginFormData] = useState({
     username: "",
+    mobileNumber: "",
     password: "",
   });
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    setUserData(storedUsers);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,7 +23,7 @@ const SignIn = ({ userData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password } = loginFormData;
+    const { username, password, mobileNumber } = loginFormData;
 
     if (!userData || userData.length === 0) {
       alert("user data is empty");
@@ -23,7 +31,9 @@ const SignIn = ({ userData }) => {
     }
 
     const loginData = userData.filter(
-      (item) => item.username === username && item.password === password
+      (item) =>
+        item.username === username ||
+        (item.mobileNumber === mobileNumber && item.password === password)
     );
 
     if (loginData.length > 0) {
@@ -51,7 +61,15 @@ const SignIn = ({ userData }) => {
                 name="username"
                 value={loginFormData.username}
                 onChange={handleChange}
-                required
+              />
+            </div>
+            <div>
+              <label>mobile No:</label>
+              <input
+                type="text"
+                name="mobileNumber"
+                value={loginFormData.mobileNumber}
+                onChange={handleChange}
               />
             </div>
             <div>

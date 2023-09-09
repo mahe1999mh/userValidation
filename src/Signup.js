@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
-const SignUp = ({ setUserData }) => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    mobileNumber: "",
     username: "",
     password: "",
   });
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    return storedUsers;
+  });
   const [isUsernameUnique, setIsUsernameUnique] = useState(true);
 
   useEffect(() => {
-    setUserData(users);
+    localStorage.setItem("users", JSON.stringify(users));
+
     console.log(users);
-  }, [users, setUserData]);
+  }, [users]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +28,7 @@ const SignUp = ({ setUserData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const isUnique = users.every((user) => user.username !== formData.username);
     if (isUnique) {
       setUsers([...users, formData]);
@@ -65,6 +71,16 @@ const SignUp = ({ setUserData }) => {
               name="email"
               required
               value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>mobile No:</label>
+            <input
+              type="text"
+              name="mobileNumber"
+              required
+              value={formData.mobileNumber}
               onChange={handleChange}
             />
           </div>

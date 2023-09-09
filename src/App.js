@@ -4,7 +4,6 @@ import Signin from "./Signin";
 import SignUp from "./Signup";
 
 function App() {
-  const [userData, setUserData] = useState([]);
   const [isSignUpVisible, setIsSignUpVisible] = useState(true);
   const [isSignInVisible, setIsSignInVisible] = useState(false);
   const showSignUp = () => {
@@ -16,6 +15,7 @@ function App() {
     setIsSignInVisible(true);
     setIsSignUpVisible(false);
   };
+
   return (
     <div className="App">
       <div className="btn">
@@ -23,8 +23,8 @@ function App() {
         <button onClick={showSignUp}>Sign Up</button>
       </div>
 
-      {isSignUpVisible && <SignUp setUserData={setUserData} />}
-      {isSignInVisible && <Signin userData={userData} />}
+      {isSignUpVisible && <SignUp />}
+      {isSignInVisible && <Signin />}
     </div>
   );
 }
